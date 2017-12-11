@@ -71,40 +71,22 @@ var fibonacci = function(n) {
 
 
 var addList = function() {
-    var a = document.createElement('ol');
-    var b = document.createElement('button');
-    b.innerHTML = "Fib Button";
-
-    var d = "hi";
-    this.innerHTML += d;
-
-    var a = document.createElement("ol");
-    var d = document.createElement("div");
-    d.setAttribute("id", 'div4');
-
-    var body = document.getElementsByTagName("body");
-    console.log(body);
-    body.innerHTML += d;
-    //this.innerHTML+=d;
-    console.log(d);
-    console.log(body);
-    /* 
-    var d = document.getElementsByClassName('body');
-    console.log(d);
-    d.appendChild(b);
-    //console.log(this);
-   
-    //d.innerHTML += "<button id='fib'> Fib </button>"; 
-    //d.appendChild(a);
-    //a.appendChild(b);
-
-    /* 
-    this.innerHTML += a;
-    this.innerHTML += b; */ 
-
-    //console.log(d);
-    
+    var newList = document.createElement('ol');
+    newList.setAttribute("id", "fibList"); 
+    var fibButton = document.createElement('button');
+    fibButton.setAttribute("id", "fibButton"); 
+    fibButton.innerHTML = "Fib Button";
+    fibButton.addEventListener("click", fibClick);
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(newList);
+    body.appendChild(fibButton);
 }
+
+var fibClick = function() {
+ r
+}
+
+
 
 addList(); 
 
