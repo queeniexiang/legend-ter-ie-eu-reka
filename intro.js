@@ -57,3 +57,54 @@ for (var i = 0; i < liItems.length; i++) {
   liItems[i].addEventListener("mouseout", resetHeader);
   liItems[i].addEventListener("click", removeElement);
 }
+
+var fibonacci = function(n) {
+
+    if (n == 0) {
+        return 0;
+    }
+    if (n < 2) {
+        return 1;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+};
+
+
+var addList = function() {
+    var a = document.createElement('ol');
+    var b = document.createElement('button');
+    b.innerHTML = "Fib Button";
+
+    var d = "hi";
+    this.innerHTML += d;
+
+    var a = document.createElement("ol");
+    var d = document.createElement("div");
+    d.setAttribute("id", 'div4');
+
+    var body = document.getElementsByTagName("body");
+    console.log(body);
+    body.innerHTML += d;
+    //this.innerHTML+=d;
+    console.log(d);
+    console.log(body);
+    /* 
+    var d = document.getElementsByClassName('body');
+    console.log(d);
+    d.appendChild(b);
+    //console.log(this);
+   
+    //d.innerHTML += "<button id='fib'> Fib </button>"; 
+    //d.appendChild(a);
+    //a.appendChild(b);
+
+    /* 
+    this.innerHTML += a;
+    this.innerHTML += b; */ 
+
+    //console.log(d);
+    
+}
+
+addList(); 
+
