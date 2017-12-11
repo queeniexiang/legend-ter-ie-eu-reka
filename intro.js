@@ -3,21 +3,26 @@
 // HW#16: Electric Boogaloo
 // 2017-12-11
 
-var index = 8;
+var index = 8; // The counter for how many elements there are in the list.
 
 // adds element to the list upon button push
 var addElement = function() {
-  var element = "<li>" + "item " + index + "</li>";
-  index++;
-  var c = document.getElementById("thelist");
-  c.innerHTML += element;
-  return element;
+  var c = document.createElement('li');
+  c.innerHTML += 'item ' + index;
+  index++; // Increases the index
+  // The following three lines ensure that the site still runs once the button is pressed:  
+  c.addEventListener("mouseover", changeHeader);
+  c.addEventListener("mouseout", resetHeader);
+  c.addEventListener("click", removeElement);
+  var d = document.getElementById('thelist');
+  d.appendChild(c);
   //console.log(element);
 };
 
 //removes element
 var removeElement = function() {
   this.remove();
+  index--; // Decreases the index.
   // this will later refer to the li item when we addEventListener
 };
 
