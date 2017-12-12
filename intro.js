@@ -81,15 +81,17 @@ Create a second button. When the second button is pressed, add a new item to you
 // ================================================= PHASE IV =========================================================
 
 // The method to return the nth fibonacci number.
+var fib1 = 0;
+var fib2 = 1;
 var fibonacci = function(n) {
-
-    if (n == 0) {
-        return 0;
-    }
-    if (n < 2) {
-        return 1;
-    }
-    return fibonacci(n - 1) + fibonacci(n - 2);
+  if (fibIndex == 0)
+    return 0;
+  if (fibIndex == 1)
+    return 1;
+  var temp = fib2;
+  fib2 += fib1;
+  fib1 = temp;
+  return fib2;
 };
 
 // To create the fibList...
@@ -109,7 +111,7 @@ var addListFib = function() {
 var fibClick = function() {
     var c = document.createElement('li');
     num = fibonacci(fibIndex);
-    c.innerHTML += 'Term: ' + fibIndex + ': '; 
+    c.innerHTML += 'Term: ' + fibIndex + ': ';
     c.innerHTML += num;
     fibIndex++; // Increases the index
     var fibList = document.getElementById('fibList');
@@ -117,8 +119,8 @@ var fibClick = function() {
 }
 
 addListFib();
-var fibButton = document.getElementById("fibButton");  
-fibButton.addEventListener('click', fibClick); 
+var fibButton = document.getElementById("fibButton");
+fibButton.addEventListener('click', fibClick);
 
 var array = [];
 
@@ -132,13 +134,13 @@ var piGenerator = function() {
 			      (1/((8*i)+6))) ) )
 			       )
 		   );
-		  
+
     }
-    console.log(array); 
+    console.log(array);
 };
 piGenerator();
 
-/* 
+/*
 var addListPi = function() {
     var newList = document.createElement('ul'); // Creates a new list
     newList.setAttribute("id", "piList"); // Gives the list an ID
@@ -154,8 +156,8 @@ var addListPi = function() {
 var piClick = function() {
     var c = document.createElement('li');
     num = array.pop();
-    var piTerm = 0; 
-    c.innerHTML += 'Term: ' + piTerm + ': '; 
+    var piTerm = 0;
+    c.innerHTML += 'Term: ' + piTerm + ': ';
     c.innerHTML += num;
     piTerm++; // Increases the index
     var piList = document.getElementById('piList');
@@ -164,6 +166,6 @@ var piClick = function() {
 
 
 addListPi();
-var piButton = document.getElementById("piButton");  
-fibButton.addEventListener('click', piClick); 	
-*/ 
+var piButton = document.getElementById("piButton");
+fibButton.addEventListener('click', piClick);
+*/
