@@ -119,53 +119,42 @@ var fibClick = function() {
 }
 
 addListFib();
+
 var fibButton = document.getElementById("fibButton");
 fibButton.addEventListener('click', fibClick);
 
-var array = [];
-
-//The Bailey–Borwein–Plouffe formula || Credits: https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula
-var piGenerator = function() {
-    for (var i = 0; i < 999; i++) {
-	array.push ( Math.floor( ( (1/Math.pow(16, i)) *
-			   ( (4/((8*i) + 1) -
-			      (2/((8*i)+4)) -
-			      (1/((8*i)+5)) -
-			      (1/((8*i)+6))) ) )
-			       )
-		   );
-
-    }
-    console.log(array);
+var FermatTerm = 1;
+var FermatGenerator = function() {
+  var ret = Math.pow(2, Math.pow(2, FermatTerm)) + 1;
+  return ret;
 };
-piGenerator();
 
-/*
-var addListPi = function() {
+FermatGenerator();
+
+
+var FermatClick = function() {
+    var c = document.createElement('li');
+    c.innerHTML += 'Term: ' + FermatTerm + ': ';
+    c.innerHTML += FermatGenerator();
+    FermatTerm++; // Increases the index
+    var FermatList = document.getElementById('FermatList');
+    FermatList.appendChild(c);
+}
+
+
+var addListFermat = function() {
     var newList = document.createElement('ul'); // Creates a new list
-    newList.setAttribute("id", "piList"); // Gives the list an ID
-    var fibButton = document.createElement('button'); // Creates a new button
-    fibButton.setAttribute("id", "piButton"); // Gives the button an ID
-    fibButton.innerHTML = "Pi Button"; // Gives the button a label (using innerHTML)
-    fibButton.addEventListener("click", fibClick); // Gives the button an event
+    newList.setAttribute("id", "FermatList"); // Gives the list an ID
+    var FermatButton = document.createElement('button'); // Creates a new button
+    FermatButton.setAttribute("id", "FermatButton"); // Gives the button an ID
+    FermatButton.innerHTML = "Fermat Button"; // Gives the button a label (using innerHTML)
+    FermatButton.addEventListener("click", FermatClick); // Gives the button an event
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(newList);
-    body.appendChild(piButton);
-}
-
-var piClick = function() {
-    var c = document.createElement('li');
-    num = array.pop();
-    var piTerm = 0;
-    c.innerHTML += 'Term: ' + piTerm + ': ';
-    c.innerHTML += num;
-    piTerm++; // Increases the index
-    var piList = document.getElementById('piList');
-    piList.appendChild(c);
+    body.appendChild(FermatButton);
 }
 
 
-addListPi();
-var piButton = document.getElementById("piButton");
-fibButton.addEventListener('click', piClick);
-*/
+addListFermat();
+var FermatButton = document.getElementById("FermatButton");
+FermatButton.addEventListener('click', FermatClick);
