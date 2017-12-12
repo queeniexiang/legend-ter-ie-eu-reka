@@ -83,7 +83,15 @@ var addList = function() {
 }
 
 var fibClick = function() {
- r
+    index = 0; 
+    var newLi = document.createElement('li');
+    var fibNum = fibonacci(index); 
+    newLi.innerHTML += 'Term: ' + index + fibNum;
+    index++;
+    var fibList = document.getElementById("fibList");
+    fibList.appendChild(newLi);
+    
+    
 }
 
 
