@@ -45,9 +45,9 @@ var findIt = function(e) {
     //Colors
     dist_rgb = Math.floor(255-dist);
     //Setting the rgb colors using current distance; 
-    document.body.style.background = "rgb(0, 0" +  "," + dist_rgb + ")";
-    
-    if (dist < 5) {
+    document.body.style.background = "rgb(100, 30" +  "," + dist_rgb + ")";
+  
+    if (dist < 10) {
 	document.body.style.background = "gold";
 	console.log("Target found!");
     }
