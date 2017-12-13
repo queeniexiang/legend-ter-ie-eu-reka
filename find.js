@@ -13,12 +13,21 @@ console.log( "box width: " + boxWidth );
 
 //calculate distance between current mouse pos and target
 var distance = function (x0, y0, x1, y1) {
-  /* YOUR IMPLEMENTATION */
+  var xcor = Math.pow( (x0 - x1), 2);
+  var ycor = Math.pow( (y0 - y1), 2);
+  return Math.sqrt(xcor + ycor);
 };
 
 
 var findIt = function(e) {
-  /* YOUR IMPLEMENTATION */
+  var currentX = event.clientX;
+  var currentY = event.clientY;
+  console.log("mouse x: " + currentX + " mouse y: " + currentY);
+  var dist = distance(currentX, currentY, targetX, targetY);
+  console.log("distance: " + dist);
+  dist = Math.floor(255 - dist);
+  document.body.style.background = "rgb(" + dist + "," + dist + "," + dist + ")";
+
 };
 
 /*
@@ -27,4 +36,3 @@ your OTHER FXNS
 */
 
 box.addEventListener("mousemove", findIt);
-
