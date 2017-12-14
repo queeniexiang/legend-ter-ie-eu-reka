@@ -50,6 +50,7 @@ var findIt = function(e) {
     if (dist < 10) {
 	document.body.style.background = "gold";
 	console.log("Target found!");
+	alert("Congratulations! You found the target! YAYYYYY!");
     }
 };
 
